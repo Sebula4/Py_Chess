@@ -58,7 +58,6 @@ while not game_over:
     #         y -= 5
     #     elif event.key == pygame.K_DOWN:
     #         y += 5
-
     #     player_pos = [x, y]
 
     # screen.fill((0, 0, 0))
