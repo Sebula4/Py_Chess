@@ -11,10 +11,11 @@ import pygame
 pygame.init()
 
 Width = 800
-Height = 600
+Height = 800
 
-RED = (255, 0, 0)
-BACKGROUND_COLOR = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (220, 220, 220)
+
 
 player_size = 50
 player_pos = [Width/2, Height-2*player_size]
@@ -29,24 +30,37 @@ while not game_over:
         if event.type == pygame.QUIT:
             sys.exit()
 
-    if event.type == pygame.KEYDOWN:
+    screen.fill(GRAY)
 
-        x = player_pos[0]
-        y = player_pos[1]
+    i = 0
+    j = 0
 
-        if event.key == pygame.K_LEFT:
-            x -= 5
-        elif event.key == pygame.K_RIGHT:
-            x += 5
-        elif event.key == pygame.K_UP:
-            y -= 5
-        elif event.key == pygame.K_DOWN:
-            y += 5
+    for x in range(32):
+        pygame.draw.rect(screen, WHITE, (i, j, 100, 100))
+        i += 200
+        if (i == 800):
+            j += 100
+            i = 100
+        elif (i == 900):
+            j += 100
+            i = 0
 
-        player_pos = [x, y]
+    # if event.type == pygame.KEYDOWN:
 
-    screen.fill((0, 0, 0))
-    pygame.draw.rect(
-        screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
+    #     x = player_pos[0]
+    #     y = player_pos[1]
+
+    #     if event.key == pygame.K_LEFT:
+    #         x -= 5
+    #     elif event.key == pygame.K_RIGHT:
+    #         x += 5
+    #     elif event.key == pygame.K_UP:
+    #         y -= 5
+    #     elif event.key == pygame.K_DOWN:
+    #         y += 5
+    #     player_pos = [x, y]
+
+    # screen.fill((0, 0, 0))
+    # pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
 
     pygame.display.update()
