@@ -1,9 +1,9 @@
-#---------------------------------
-#Project: Python Chess
-#Authors: Sebastian Hollabaugh & Austin Koehler
+# ---------------------------------
+# Project: Python Chess
+# Authors: Sebastian Hollabaugh & Austin Koehler
 #Date: 8-12-2020
-#Desc: A basic game of chess made in python
-#----------------------------------
+# Desc: A basic game of chess made in python
+# ----------------------------------
 
 import sys
 import pygame
@@ -24,7 +24,7 @@ screen = pygame.display.set_mode((Width, Height))
 game_over = False
 
 while not game_over:
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -43,9 +43,10 @@ while not game_over:
         elif event.key == pygame.K_DOWN:
             y += 5
 
-        player_pos = [x,y]    
+        player_pos = [x, y]
 
-    screen.fill((0,0,0))
-    pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
+    screen.fill((0, 0, 0))
+    pygame.draw.rect(
+        screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
 
     pygame.display.update()
