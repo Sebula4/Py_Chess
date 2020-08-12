@@ -5,17 +5,19 @@
 #Desc: A basic game of chess made in python
 #----------------------------------
 
-import pygame
 import sys
+import pygame
 
 pygame.init()
 
 Width = 800
 Height = 600
 
-RED = (255,0,0)
-player_pos = [400, 300]
+RED = (255, 0, 0)
+BACKGROUND_COLOR = (0, 0, 0)
+
 player_size = 50
+player_pos = [Width/2, Height-2*player_size]
 
 screen = pygame.display.set_mode((Width, Height))
 
@@ -27,9 +29,23 @@ while not game_over:
         if event.type == pygame.QUIT:
             sys.exit()
 
+    if event.type == pygame.KEYDOWN:
+
+        x = player_pos[0]
+        y = player_pos[1]
+
+        if event.key == pygame.K_LEFT:
+            x -= 5
+        elif event.key == pygame.K_RIGHT:
+            x += 5
+        elif event.key == pygame.K_UP:
+            y -= 5
+        elif event.key == pygame.K_DOWN:
+            y += 5
+
+        player_pos = [x,y]    
+
+    screen.fill((0,0,0))
     pygame.draw.rect(screen, RED, (player_pos[0], player_pos[1], player_size, player_size))
 
     pygame.display.update()
-
-    #print(pygame.get_init())
-
