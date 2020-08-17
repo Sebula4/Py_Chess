@@ -1,0 +1,39 @@
+How will the game work?
+    The game will take place in a 2D array
+    The array will be of objects "Chess_Pieces"
+    The array will go from A1 to H8 as follows t = [[1,2,3,4,5,6,7,8], [1,2,3,4,5,6,7,8], etc]
+    The pieces will either be filled with objects, or null.
+    
+Rules for moving pieces   
+    a piece will be selected
+    The available spots to move the piece will be highlighted
+    If one of those spots are selected, the piece will move there.
+        a piece will be moved into a spot before it is deleted
+        a piece will check if the spot is available before moving
+        if there is an oponent piece, it will take it
+
+Data structure
+    chess piece
+        create()
+        remove_to_grave()
+        move() #sets basic movement options
+        type attribute #black or white
+
+    Individual pieces (ie. rook, pawn, king, etc)
+        inherits chess piece methods
+        move()
+        display() locate asset
+
+game (main.py)
+    Setup the playing window
+    Create the chess pieces and assign in 2d array
+    Display each piece
+    Display graveyard
+    Display turn (player 1)
+        picks a piece
+        moves piece
+            takes opponent's piece if available
+        
+
+
+
